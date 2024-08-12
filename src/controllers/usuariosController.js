@@ -1,7 +1,6 @@
-const { executarSQL, prisma } = require('../database/index')
+const { prisma } = require('../database/index')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const {PrismaClient} = require("@prisma/client")
 require('dotenv').config()
 
 async function listarUsuarios(req,res){

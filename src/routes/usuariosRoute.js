@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { listarUsuarios, listarUmUsuario, cadastrarUsuario, apagarUsuario, editarUsuario } = require('../controllers/usuarioController')
+const { listarUsuarios, listarUmUsuario, cadastrarUsuario, apagarUsuario, editarUsuario } = require('../controllers/usuariosController')
 
 router.get('/', async (req,res)=>{
     res.send(await listarUsuarios())
