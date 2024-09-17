@@ -114,14 +114,14 @@ model carrinhos {
 }
 
 model carrinhoItens {
-  item_id       Int       @id @default(autoincrement())
-  carrinho_id   Int
+  item_id       Int        @id @default(autoincrement())
+  carrinho_id   Int?
   produto_id    Int
   quantidade    Int
-  criado_em     DateTime  @default(now()) @db.DateTime(0)
-  atualizado_em DateTime? @default(now()) @db.DateTime(0)
-  carrinho      carrinhos @relation(fields: [carrinho_id], references: [carrinho_id])
-  produto       produtos  @relation(fields: [produto_id], references: [produto_id])
+  criado_em     DateTime   @default(now()) @db.DateTime(0)
+  atualizado_em DateTime?  @default(now()) @db.DateTime(0)
+  carrinho      carrinhos? @relation(fields: [carrinho_id], references: [carrinho_id])
+  produto       produtos   @relation(fields: [produto_id], references: [produto_id])
 
   @@unique([carrinho_id, produto_id])
   @@index([produto_id], map: "carrinhoItens_produto_id_fkey")
@@ -234,14 +234,3 @@ model cupons {
   atualizado_em  DateTime? @default(now()) @db.DateTime(0)
   pedidos        pedidos[] @relation("cuponsPedido")
 }
-
-// model cupons {
-//   cupom_id       Int    @id @default(autoincrement())
-//   cupom_nome     String @db.VarChar(255)
-//   cupom_desconto Float  @db.Float()
-
-//   cupom_pedidos pedidos[] @relation("cuponsPedido")
-
-//   criado_em     DateTime  @default(now()) @db.DateTime(0)
-//   atualizado_em DateTime? @default(now()) @db.DateTime(0)
-// }
