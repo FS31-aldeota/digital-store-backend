@@ -7,8 +7,10 @@ const util = require('util');
 const copyFileAsync = util.promisify(fs.copyFile);
 const unlinkAsync = util.promisify(fs.unlink);
 
-// const __filename = url.fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const uploadDir = path.join(__dirname, '../uploads/produtos_imagem');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 async function listarBanners() {
     try {
@@ -159,7 +161,7 @@ async function editarBanner(dados) {
             } catch (err) {
                 return reject({
                     status: 400,
-                    message: `Erro ao ler a primeira linha do arquivo: ${err.message}`
+                    message: err.message
                 });
             }
 
