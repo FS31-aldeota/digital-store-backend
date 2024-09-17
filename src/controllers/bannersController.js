@@ -87,7 +87,7 @@ async function cadastrarBanner(dados) {
             } catch (err) {
                 return reject({
                     status: 400,
-                    message: `Erro ao ler a primeira linha do arquivo: ${err.message}`
+                    message: err.message
                 });
             }
 
