@@ -73,7 +73,7 @@ router.post("/", async (req, res) => {
                 severity: 'danger'
             }
     } */
-    res.send(await cadastrarBanner(req.body));
+    res.send(await cadastrarBanner(req));
 });
 router.put("/", async (req, res) => {
     // #swagger.tags = ['Banner']
@@ -103,7 +103,7 @@ router.put("/", async (req, res) => {
                 severity: 'danger'
             }
     } */
-    res.send(await editarBanner(req.body));
+    res.send(await editarBanner(req));
 });
 router.delete("/:id", async (req, res) => {
     // #swagger.tags = ['Banner']
