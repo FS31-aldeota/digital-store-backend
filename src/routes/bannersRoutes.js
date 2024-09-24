@@ -8,13 +8,13 @@ router.get("/", async (req, res) => {
     /* #swagger.responses[200] = {
             description: 'Retorna lista de banner',
             schema: [{
-                $banner_id: "id do banner",
-                $banner_nome: "nome do banner",
-                $banner_subtitulo: "subtitulo",
-                $banner_titulo: "titulo",
-                $banner_descricao: "descrição",
-                $banner_link: "link do botão",
-                $banner_imagem: binario da imagem
+                banner_id: "id do banner",
+                banner_nome: "nome do banner",
+                banner_subtitulo: "subtitulo",
+                banner_titulo: "titulo",
+                banner_descricao: "descrição",
+                banner_link: "link do botão",
+                banner_imagem: "binario da imagem"
             }]
     } */
     /* #swagger.responses[422] = {
@@ -33,13 +33,13 @@ router.get("/:id", async (req, res) => {
     /* #swagger.responses[200] = {
             description: 'Retorna um banner',
             schema: {
-                $banner_id: "id do banner",
-                $banner_nome: "nome do banner",
-                $banner_subtitulo: "subtitulo",
-                $banner_titulo: "titulo",
-                $banner_descricao: "descrição",
-                $banner_link: "link do botão",
-                $banner_imagem: binario da imagem
+                banner_id: "id do banner",
+                banner_nome: "nome do banner",
+                banner_subtitulo: "subtitulo",
+                banner_titulo: "titulo",
+                banner_descricao: "descrição",
+                banner_link: "link do botão",
+                banner_imagem: "binario da imagem"
             }
     } */
     /* #swagger.responses[422] = {
@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
                     $banner_titulo: "titulo",
                     $banner_descricao: "descrição",
                     $banner_link: "link do botão",
-                    $banner_imagem: binario da imagem
+                    $banner_imagem: "binario da imagem"
                 }
         } */
     /* #swagger.responses[200] = {
@@ -96,7 +96,7 @@ router.put("/", async (req, res) => {
                     $banner_titulo: "titulo",
                     $banner_descricao: "descrição",
                     $banner_link: "link do botão",
-                    $banner_imagem: binario da imagem
+                    $banner_imagem: "binario da imagem"
                 }
         } */
     /* #swagger.responses[200] = {

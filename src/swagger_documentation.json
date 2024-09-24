@@ -879,6 +879,564 @@
         }
       }
     },
+    "/banners/": {
+      "get": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Retorna lista de banner",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna lista de banner",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "banner_id": {
+                    "type": "string",
+                    "example": "id do banner"
+                  },
+                  "banner_nome": {
+                    "type": "string",
+                    "example": "nome do banner"
+                  },
+                  "banner_subtitulo": {
+                    "type": "string",
+                    "example": "subtitulo"
+                  },
+                  "banner_titulo": {
+                    "type": "string",
+                    "example": "titulo"
+                  },
+                  "banner_descricao": {
+                    "type": "string",
+                    "example": "descrição"
+                  },
+                  "banner_link": {
+                    "type": "string",
+                    "example": "link do botão"
+                  },
+                  "banner_imagem": {
+                    "type": "string",
+                    "example": "binario da imagem"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Cria uma Banner",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "banner_nome": {
+                  "type": "string",
+                  "example": "nome do banner"
+                },
+                "banner_subtitulo": {
+                  "type": "string",
+                  "example": "subtitulo"
+                },
+                "banner_titulo": {
+                  "type": "string",
+                  "example": "titulo"
+                },
+                "banner_descricao": {
+                  "type": "string",
+                  "example": "descrição"
+                },
+                "banner_link": {
+                  "type": "string",
+                  "example": "link do botão"
+                },
+                "banner_imagem": {
+                  "type": "string",
+                  "example": "binario da imagem"
+                }
+              },
+              "required": [
+                "banner_nome",
+                "banner_subtitulo",
+                "banner_titulo",
+                "banner_descricao",
+                "banner_link",
+                "banner_imagem"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Banner criado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Banner criado"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Edita uma banner",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "banner_id": {
+                  "type": "string",
+                  "example": "id do banner"
+                },
+                "banner_nome": {
+                  "type": "string",
+                  "example": "nome do banner"
+                },
+                "banner_subtitulo": {
+                  "type": "string",
+                  "example": "subtitulo"
+                },
+                "banner_titulo": {
+                  "type": "string",
+                  "example": "titulo"
+                },
+                "banner_descricao": {
+                  "type": "string",
+                  "example": "descrição"
+                },
+                "banner_link": {
+                  "type": "string",
+                  "example": "link do botão"
+                },
+                "banner_imagem": {
+                  "type": "string",
+                  "example": "binario da imagem"
+                }
+              },
+              "required": [
+                "banner_id",
+                "banner_nome",
+                "banner_subtitulo",
+                "banner_titulo",
+                "banner_descricao",
+                "banner_link",
+                "banner_imagem"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Banner atualizado.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Banner atualizado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banners/{id}": {
+      "get": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Retorna um banner",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna um banner",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "banner_id": {
+                  "type": "string",
+                  "example": "id do banner"
+                },
+                "banner_nome": {
+                  "type": "string",
+                  "example": "nome do banner"
+                },
+                "banner_subtitulo": {
+                  "type": "string",
+                  "example": "subtitulo"
+                },
+                "banner_titulo": {
+                  "type": "string",
+                  "example": "titulo"
+                },
+                "banner_descricao": {
+                  "type": "string",
+                  "example": "descrição"
+                },
+                "banner_link": {
+                  "type": "string",
+                  "example": "link do botão"
+                },
+                "banner_imagem": {
+                  "type": "string",
+                  "example": "binario da imagem"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Banner"
+        ],
+        "description": "Deleta um banner.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Banner deletado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Banner deletado com sucesso."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
     "/avaliacoes/": {
       "get": {
         "tags": [
@@ -4865,6 +5423,1389 @@
                 "severity": {
                   "type": "string",
                   "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carrinhos/": {
+      "get": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "description": "Retorna lista de carrinhos.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna lista de carrinhos",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "carrinho_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "usuario_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "itens": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "carrinho_id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "produto_id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "quantidade": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  },
+                  "criado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  },
+                  "atualizado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "description": "Cria um carrinho",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "usuario_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "itens": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                }
+              },
+              "required": [
+                "usuario_id",
+                "itens"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Carrinho criado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Carrinho criado"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "description": "Edita um carrinho.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "carrinho_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "usuario_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "itens": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                }
+              },
+              "required": [
+                "carrinho_id",
+                "usuario_id",
+                "itens"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Carrinho atualizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Carrinho atualizado"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carrinhos/{id}": {
+      "get": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "description": "Retorna um carrinho.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna um carrinho.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "carrinho_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "usuario_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "itens": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "carrinho_id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "produto_id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "quantidade": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  },
+                  "criado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  },
+                  "atualizado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "description": "Deleta um carrinho.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Carrinho deletado.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Carrinho deletado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cupons/": {
+      "get": {
+        "tags": [
+          "Cupons"
+        ],
+        "description": "Retorna lista de cupons.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna lista de cupons",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cupom_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "cupom_nome": {
+                    "type": "string",
+                    "example": "DESCONTO10"
+                  },
+                  "cupom_desconto": {
+                    "type": "number",
+                    "example": 10
+                  },
+                  "criado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  },
+                  "atualizado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cupons"
+        ],
+        "description": "Cria um cupom.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cupom_nome": {
+                  "type": "string",
+                  "example": "DESCONTO10"
+                },
+                "cupom_desconto": {
+                  "type": "number",
+                  "example": 10
+                }
+              },
+              "required": [
+                "cupom_nome",
+                "cupom_desconto"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cupom criado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Cupom criado com sucesso."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cupons"
+        ],
+        "description": "Edita um cupom.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cupom_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cupom_nome": {
+                  "type": "string",
+                  "example": "NOVO_DESCONTO"
+                },
+                "cupom_desconto": {
+                  "type": "number",
+                  "example": 15
+                }
+              },
+              "required": [
+                "cupom_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cupom atualizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Cupom atualizado com sucesso."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cupons/{id}": {
+      "get": {
+        "tags": [
+          "Cupons"
+        ],
+        "description": "Retorna um cupom.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna um cupom",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cupom_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cupom_nome": {
+                  "type": "string",
+                  "example": "DESCONTO10"
+                },
+                "cupom_desconto": {
+                  "type": "number",
+                  "example": 10
+                },
+                "criado_em": {
+                  "type": "string",
+                  "example": "2024-08-26 23:31:00"
+                },
+                "atualizado_em": {
+                  "type": "string",
+                  "example": "2024-08-26 23:31:00"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cupons"
+        ],
+        "description": "Deleta um cupom.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cupom deletado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Cupom deletado com sucesso."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "success"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Erro interno",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 422
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "mensagem do sistema"
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "danger"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/colecoes/": {
+      "get": {
+        "tags": [
+          "Coleções"
+        ],
+        "description": "Retorna lista de coleções.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna lista de coleções",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "colecao_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "colecao_nome": {
+                    "type": "string",
+                    "example": "Coleção Verão"
+                  },
+                  "colecao_descricao": {
+                    "type": "string",
+                    "example": "Coleção inspirada no verão de 2024"
+                  },
+                  "criado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  },
+                  "atualizado_em": {
+                    "type": "string",
+                    "example": "2024-08-26 23:31:00"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Coleções"
+        ],
+        "description": "Cria uma coleção.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colecao_nome": {
+                  "type": "string",
+                  "example": "Coleção Verão"
+                },
+                "colecao_descricao": {
+                  "type": "string",
+                  "example": "Coleção inspirada no verão de 2024"
+                },
+                "produtos": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                }
+              },
+              "required": [
+                "colecao_nome",
+                "colecao_descricao",
+                "produtos"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Coleções"
+        ],
+        "description": "Edita uma coleção.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colecao_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "colecao_nome": {
+                  "type": "string",
+                  "example": "Coleção Primavera"
+                },
+                "colecao_descricao": {
+                  "type": "string",
+                  "example": "Nova descrição"
+                },
+                "produtos": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                }
+              },
+              "required": [
+                "colecao_id",
+                "colecao_nome",
+                "colecao_descricao",
+                "produtos"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/colecoes/{id}": {
+      "get": {
+        "tags": [
+          "Coleções"
+        ],
+        "description": "Retorna uma coleção.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna uma coleção",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colecao_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "colecao_nome": {
+                  "type": "string",
+                  "example": "Coleção Verão"
+                },
+                "colecao_descricao": {
+                  "type": "string",
+                  "example": "Coleção inspirada no verão de 2024"
+                },
+                "produtos": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                },
+                "criado_em": {
+                  "type": "string",
+                  "example": "2024-08-26 23:31:00"
+                },
+                "atualizado_em": {
+                  "type": "string",
+                  "example": "2024-08-26 23:31:00"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Coleções"
+        ],
+        "description": "Deleta uma coleção.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Não autorizado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "number",
+                  "example": 401
+                },
+                "detail": {
+                  "type": "string",
+                  "example": "Usuário não encontrado."
+                },
+                "severity": {
+                  "type": "string",
+                  "example": "warm"
                 }
               },
               "xml": {

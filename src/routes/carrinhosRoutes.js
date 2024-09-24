@@ -10,7 +10,13 @@ router.get('/', async (req,res)=>{
             schema: [{
                 carrinho_id: 1,
                 usuario_id: 1,
-                itens: [],
+                itens: [
+                    {
+                        carrinho_id: 1,
+                        produto_id: 1,
+                        quantidade: 1
+                    }
+                ],
                 criado_em: '2024-08-26 23:31:00',
                 atualizado_em: '2024-08-26 23:31:00'
             }]
@@ -34,7 +40,13 @@ router.get('/:id', async (req,res)=>{
             schema: [{
                 carrinho_id: 1,
                 usuario_id: 1,
-                itens: [],
+                itens: [
+                    {
+                        carrinho_id: 1,
+                        produto_id: 1,
+                        quantidade: 1
+                    }
+                ],
                 criado_em: '2024-08-26 23:31:00',
                 atualizado_em: '2024-08-26 23:31:00'
             }]
@@ -56,8 +68,8 @@ router.post('/', async (req,res)=>{
     /* #swagger.parameters['obj'] = {
                 in: 'body',
                 schema: {
-                    $usuario_id: 1
-                    $itens: [],
+                    $usuario_id: 1,
+                    $itens: []
                 }
         } */
     /* #swagger.responses[200] = {
@@ -86,8 +98,8 @@ router.put('/', async (req,res)=>{
                 in: 'body',
                 schema: {
                     $carrinho_id: 1,
-                    $usuario_id: 1
-                    $itens: [],
+                    $usuario_id: 1,
+                    $itens: []
                 }
         } */
     /* #swagger.responses[200] = {
