@@ -186,7 +186,7 @@ app.use('/colecoes',
             }
     } */
     verificarToken,
-    colecoesRoutes())
+    colecoesRoutes)
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
