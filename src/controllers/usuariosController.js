@@ -10,7 +10,9 @@ async function listarUsuarios(req,res){
 async function listarUmUsuario(id){
     return prisma.usuarios.findFirst({
         where: {
-            usuario_id: id
+            usuario_id: parseInt(id)
+        }, include: {
+            pedidos: true
         }
     })
 }

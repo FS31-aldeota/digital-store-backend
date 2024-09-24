@@ -136,6 +136,8 @@ model pedidos {
   pedido_descricao String?
   itens            pedidoItens[]
   cupons           cupons[]      @relation("cuponsPedido")
+  usuario_id       Int?
+  usuario          usuarios?     @relation(fields: [usuario_id], references: [usuario_id])
 }
 
 model pedidoItens {
@@ -221,6 +223,7 @@ model usuarios {
   criado_em          DateTime     @default(now()) @db.DateTime(0)
   atualizado_em      DateTime?    @default(now()) @db.DateTime(0)
   usuario_avaliacoes avaliacoes[]
+  pedidos            pedidos[]
   carrinhos          carrinhos?
   desejos            desejos?
   usuario_endereco   enderecos?
