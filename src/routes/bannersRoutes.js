@@ -8,10 +8,13 @@ router.get("/", async (req, res) => {
     /* #swagger.responses[200] = {
             description: 'Retorna lista de banner',
             schema: [{
-                avaliacao_id: 1,
-                avaliacao_opiniao: "Texto da Banner",
-                avaliacao_nota: 4,
-                usuario_id: 1
+                $banner_id: "id do banner",
+                $banner_nome: "nome do banner",
+                $banner_subtitulo: "subtitulo",
+                $banner_titulo: "titulo",
+                $banner_descricao: "descrição",
+                $banner_link: "link do botão",
+                $banner_imagem: binario da imagem
             }]
     } */
     /* #swagger.responses[422] = {
@@ -26,14 +29,17 @@ router.get("/", async (req, res) => {
 });
 router.get("/:id", async (req, res) => {
     // #swagger.tags = ['Banner']
-    // #swagger.description = 'Retorna uma banner'
+    // #swagger.description = 'Retorna um banner'
     /* #swagger.responses[200] = {
-            description: 'Retorna uma banner',
+            description: 'Retorna um banner',
             schema: {
-                avaliacao_id: 1,
-                avaliacao_opiniao: "Texto da Banner",
-                avaliacao_nota: 4,
-                usuario_id: 1
+                $banner_id: "id do banner",
+                $banner_nome: "nome do banner",
+                $banner_subtitulo: "subtitulo",
+                $banner_titulo: "titulo",
+                $banner_descricao: "descrição",
+                $banner_link: "link do botão",
+                $banner_imagem: binario da imagem
             }
     } */
     /* #swagger.responses[422] = {
@@ -52,16 +58,19 @@ router.post("/", async (req, res) => {
     /* #swagger.parameters['obj'] = {
                 in: 'body',
                 schema: {
-                    $avaliacao_opiniao: "Texto da Banner",
-                    $avaliacao_nota: 4,
-                    $usuario_id: 1
+                    $banner_nome: "nome do banner",
+                    $banner_subtitulo: "subtitulo",
+                    $banner_titulo: "titulo",
+                    $banner_descricao: "descrição",
+                    $banner_link: "link do botão",
+                    $banner_imagem: binario da imagem
                 }
         } */
     /* #swagger.responses[200] = {
-            description: 'Imagem criado',
+            description: 'Banner criado',
             schema: {
                 status: 200,
-                detail: 'Imagem criado',
+                detail: 'Banner criado',
                 severity: 'success'
             }
     } */
@@ -81,10 +90,13 @@ router.put("/", async (req, res) => {
     /* #swagger.parameters['obj'] = {
                 in: 'body',
                 schema: {
-                    $avaliacao_id: 1,
-                    $avaliacao_opiniao: "Texto da Banner",
-                    $avaliacao_nota: 4,
-                    $usuario_id: 1
+                    $banner_id: "id do banner",
+                    $banner_nome: "nome do banner",
+                    $banner_subtitulo: "subtitulo",
+                    $banner_titulo: "titulo",
+                    $banner_descricao: "descrição",
+                    $banner_link: "link do botão",
+                    $banner_imagem: binario da imagem
                 }
         } */
     /* #swagger.responses[200] = {
@@ -107,7 +119,7 @@ router.put("/", async (req, res) => {
 });
 router.delete("/:id", async (req, res) => {
     // #swagger.tags = ['Banner']
-    // #swagger.description = 'Deleta uma banner.'
+    // #swagger.description = 'Deleta um banner.'
     /* #swagger.responses[200] = {
             description: 'Banner deletado',
             schema: {
