@@ -35,8 +35,9 @@ async function cadastrarUsuario(data){
         if(novoUsuario){
             return {
                 status: 200,
-                detail: "Usuario cadastrado com sucesso.",
-                severity: "success"
+                detail: `Usuario cadastrado com sucesso.`,
+                severity: "success",
+                usuario_id: novoUsuario.usuario_id
             }
         }else{
             return {
@@ -122,6 +123,7 @@ async function logar(data){
                 usuario_email: data.usuario_email
             }
         })
+
         if(usuarioLogando){
             const aSenhaEstaCorreta = await bcrypt.compare(data.usuario_senha, usuarioLogando.usuario_senha)
             if (aSenhaEstaCorreta) {
